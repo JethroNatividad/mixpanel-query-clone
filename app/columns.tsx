@@ -1,16 +1,7 @@
 'use client'
 
+import { User } from '@prisma/client'
 import { ColumnDef } from '@tanstack/react-table'
-
-export type User = {
-  name: string
-  email: string
-  distinctId: string
-  updatedAt: Date
-  countryCode: string
-  region: string
-  city: string
-}
 
 export const columns: ColumnDef<User>[] = [
   {
