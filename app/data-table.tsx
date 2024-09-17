@@ -32,7 +32,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className='dark rounded-md border'>
+    <div className='overflow-x-auto rounded-md border'>
       <Table>
         <TableHeader className='bg-secondary'>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -52,7 +52,7 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody className='h-[500px]'>
+        <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
