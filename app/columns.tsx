@@ -6,7 +6,7 @@ export type User = {
   name: string
   email: string
   distinctId: string
-  updatedAt: string
+  updatedAt: Date
   countryCode: string
   region: string
   city: string
