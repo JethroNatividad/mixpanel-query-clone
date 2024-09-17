@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Field,
   formatQuery,
@@ -9,26 +7,21 @@ import {
 } from 'react-querybuilder'
 import 'react-querybuilder/dist/query-builder.css'
 
-const fields: Field[] = [
-  { name: 'name', label: 'Name' },
-  { name: 'email', label: 'Email' },
-  { name: 'distinctId', label: 'Distinct ID' },
-  { name: 'updatedAt', label: 'Updated At', inputType: 'date' },
-  { name: 'countryCode', label: 'Country Code' },
-  { name: 'region', label: 'Region' },
-  { name: 'city', label: 'City' },
-]
+type Props = {
+  fields: Field[]
+  query: RuleGroupType
+  onQueryChange: (query: RuleGroupType) => void
+}
 
-const CustomQueryBuilder = () => {
-  const [query, setQuery] = useState<RuleGroupType>({
-    combinator: 'and',
-    rules: [],
-  })
-
+const CustomQueryBuilder = ({ fields, query, onQueryChange }: Props) => {
   return (
     <div className='space-y-6'>
       <div className='[&>div>div]:rounded-lg [&>div>div]:border-border [&>div>div]:bg-background [&_input]:bg-muted [&_select]:bg-muted'>
-        <QueryBuilder fields={fields} query={query} onQueryChange={setQuery} />
+        <QueryBuilder
+          fields={fields}
+          query={query}
+          onQueryChange={onQueryChange}
+        />
       </div>
 
       <pre>{formatQuery(query, 'sql')}</pre>
