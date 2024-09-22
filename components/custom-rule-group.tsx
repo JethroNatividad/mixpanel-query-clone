@@ -108,33 +108,31 @@ const CustomRuleGroup = (props: RuleGroupProps) => {
                                 add(query, rule, path)
                               )
                             }
+
+                            setIsOpen(false)
                           }
 
                           if (field.inputType === 'date') {
                             return (
-                              <PopoverClose key={field.label} asChild>
-                                <button
-                                  key={field.label}
-                                  onClick={handleAddRule}
-                                  className='flex w-full items-center justify-start space-x-2 rounded-sm px-2 py-3 hover:bg-primary/10 hover:text-primary'
-                                >
-                                  <CalendarIcon className='size-5' />
-                                  <span className='text-sm'>{field.label}</span>
-                                </button>
-                              </PopoverClose>
+                              <button
+                                key={field.label}
+                                onClick={handleAddRule}
+                                className='flex w-full items-center justify-start space-x-2 rounded-sm px-2 py-3 hover:bg-primary/10 hover:text-primary'
+                              >
+                                <CalendarIcon className='size-5' />
+                                <span className='text-sm'>{field.label}</span>
+                              </button>
                             )
                           }
 
                           return (
-                            <PopoverClose key={field.label} asChild>
-                              <button
-                                className='flex w-full items-center justify-start space-x-2 rounded-sm px-2 py-3 hover:bg-primary/10 hover:text-primary'
-                                onClick={handleAddRule}
-                              >
-                                <LetterCaseCapitalizeIcon className='size-5' />
-                                <span className='text-sm'>{field.label}</span>
-                              </button>
-                            </PopoverClose>
+                            <button
+                              className='flex w-full items-center justify-start space-x-2 rounded-sm px-2 py-3 hover:bg-primary/10 hover:text-primary'
+                              onClick={handleAddRule}
+                            >
+                              <LetterCaseCapitalizeIcon className='size-5' />
+                              <span className='text-sm'>{field.label}</span>
+                            </button>
                           )
                         })}
                     </div>
