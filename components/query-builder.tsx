@@ -6,6 +6,7 @@ import {
   RuleGroupType,
 } from 'react-querybuilder'
 import 'react-querybuilder/dist/query-builder.css'
+import CustomRuleGroup from './custom-rule-group'
 
 type Props = {
   fields: Field[]
@@ -21,6 +22,9 @@ const CustomQueryBuilder = ({ fields, query, onQueryChange }: Props) => {
           fields={fields}
           query={query}
           onQueryChange={onQueryChange}
+          controlElements={{
+            ruleGroup: CustomRuleGroup,
+          }}
         />
       </div>
 

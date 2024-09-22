@@ -2,9 +2,9 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <header className='dark fixed left-0 top-0 z-50 flex h-16 w-full items-center bg-primary px-6'>
+    <header className='fixed left-0 top-0 z-50 flex h-16 w-full items-center bg-primary px-6'>
       <svg
-        className='size-6'
+        className='size-6 text-primary-foreground'
         viewBox='0 0 50 47'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

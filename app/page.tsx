@@ -1,9 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { getUsers } from '@/lib/actions/users'
-import { columns } from './columns'
-import { DataTable } from './data-table'
-import CustomQueryBuilder from './query-builder'
+import { columns } from '../components/columns'
+import { DataTable } from '../components/data-table'
+import CustomQueryBuilder from '../components/query-builder'
 import { Field, formatQuery, RuleGroupType } from 'react-querybuilder'
 import { User } from '@prisma/client'
 
@@ -20,7 +20,7 @@ const fields: Field[] = [
 export default function Home() {
   const [query, setQuery] = useState<RuleGroupType>({
     combinator: 'and',
-    rules: [],
+    rules: [{ field: 'name', operator: '=', value: 'Steve' }],
   })
 
   const [users, setUsers] = useState<User[]>([])
@@ -35,7 +35,7 @@ export default function Home() {
   }, [query])
 
   return (
-    <div className='dark space-y-10 px-20 py-10'>
+    <div className='space-y-10 px-20 py-10'>
       <CustomQueryBuilder
         fields={fields}
         onQueryChange={setQuery}
